@@ -1,0 +1,20 @@
+service: todolist-aws
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+
+functions:
+  api:
+    handler: src/app.handler
+    events:
+      - httpApi: '*'
+
+plugins:
+  - serverless-offline
+
+custom:
+  serverless-offline:
+    httpPort: 4000
+
